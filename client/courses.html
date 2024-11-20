@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Courses List</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Courses List</h1>
+    <table id="coursesTable">
+      <thead>
+        <tr>
+          <th>Course Name</th>
+          <th>Course Code</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Course data will be populated here -->
+      </tbody>
+    </table>
+    <button onclick="location.href='index.html'">Back to Home</button>
+    <script>
+      async function loadCourses() {
+        try {
+          const response = await fetch("http://localhost:3000/api/courses");
+          const courses = await response.json();
+          const coursesTableBody = document
+            .getElementById("coursesTable")
+            .getElementsByTagName("tbody")[0];
+          coursesTableBody.innerHTML = ""; // Clear the table
+
+          courses.forEach((course) => {
+            const row = coursesTableBody.insertRow();
+            row.insertCell(0).textContent = course.name;
+            row.insertCell(1).textContent = course.code;
+          });
+        } catch (error) {
+          console.error("Error loading courses:", error);
+        }
+      }
+
+      // Load courses on page load
+      window.onload = loadCourses;
+    </script>
+  </body>
+</html>

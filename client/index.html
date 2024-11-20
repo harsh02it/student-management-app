@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Management</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Student Management System</h1>
+    <div id="btn-list">
+      <button onclick="location.href='students.html'">
+        View Students List
+      </button>
+      <button onclick="location.href='courses.html'">View Courses List</button>
+    </div>
+    <form id="studentForm">
+      <input type="text" id="firstName" placeholder="First Name" required />
+      <input type="text" id="lastName" placeholder="Last Name" required />
+      <input type="text" id="id" placeholder="Student ID" required />
+      <input type="text" id="semester" placeholder="Semester" required />
+
+      <label for="courses">Select Courses:</label>
+      <select id="courses" multiple>
+        <!-- Options will be populated dynamically -->
+      </select>
+
+      <button type="submit">Add Student</button>
+    </form>
+
+    <script src="script.js"></script>
+  </body>
+</html>
