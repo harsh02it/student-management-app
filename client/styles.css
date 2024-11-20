@@ -56,8 +56,9 @@ button:hover {
 /* Button List Styles */
 #btn-list {
   display: flex;
+  width: 30%;
+  margin: 0 auto;
   justify-content: center;
-  margin-bottom: 20px;
 }
 
 #btn-list button {
